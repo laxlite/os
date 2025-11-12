@@ -8,6 +8,6 @@ if exist build (
 mkdir build
 cmake -S . -B build
 cd build
-make
+mingw32-make
 echo Сборка завершена
 pause
