@@ -6,7 +6,7 @@ if exist build (
     rmdir /s /q build
 )
 mkdir build
-cmake -S . -B build
+cmake -S . -B build -G "MinGW Makefiles"
 cd build
 mingw32-make
 echo Сборка завершена
