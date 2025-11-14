@@ -10,11 +10,11 @@ git commit -m "$message"
 
 cd lab_1
 
-if [ -d "build" ]; then
-    rm -rf build;
+if [ -d "build-linux" ]; then
+    rm -rf build-linux;
 fi
-mkdir build
-cmake -S . -B build
-cd build
+mkdir build-linux
+cmake -S . -B build-linux
+cd build-linux
 make
 echo "Сборка завершена"
