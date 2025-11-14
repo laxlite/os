@@ -3,10 +3,10 @@
 set SCRIPT_DIR=%~dp0
 echo build.cmd located in: %SCRIPT_DIR%
 
-
+cd %SCRIPT_DIR%
 cd ..
 git add *
-set /p message=Текст коммита: 
+set /p message=Commit description: 
 git commit -m "%message%"
 cd lab_1
 if exist build (
@@ -16,5 +16,5 @@ mkdir build
 cmake -S . -B build -G "MinGW Makefiles"
 cd build
 mingw32-make
-echo Сборка завершена
+echo Build was completed
 pause
