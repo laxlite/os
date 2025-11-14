@@ -9,12 +9,11 @@ git add *
 set /p message=Commit description: 
 git commit -m "%message%"
 cd lab_1
-if exist build (
-    rmdir /s /q build
+if exist build-windows (
+    rmdir /s /q build-windows
 )
-mkdir build
-cmake -S . -B build -G "MinGW Makefiles"
-cd build
+mkdir build-windows
+cmake -S . -B build-windows -G "MinGW Makefiles"
+cd build-windows
 mingw32-make
 echo Build was completed
-pause
