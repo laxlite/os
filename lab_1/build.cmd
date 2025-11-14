@@ -1,4 +1,10 @@
 @echo off
+
+set SCRIPT_DIR=%~dp0
+echo build.cmd located in: %SCRIPT_DIR%
+
+
+cd ..
 git add *
 set /p message=Текст коммита: 
 git commit -m "%message%"

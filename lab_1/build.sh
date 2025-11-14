@@ -1,5 +1,5 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE}")" && pwd)" # определяем абсолютный путь к скрипту
-echo "build.sh in: ${SCRIPT_DIR}"
+echo "build.sh located in: ${SCRIPT_DIR}"
 
 cd $SCRIPT_DIR
 cd ..
