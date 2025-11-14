@@ -1,3 +1,9 @@
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE}")" && pwd)" # определяем абсолютный путь к скрипту
+echo "build.sh in: ${SCRIPT_DIR}"
+
+cd $SCRIPT_DIR
+cd ..
+
 git add .
 read -p "Текст коммита: " message
 git commit -m "$message"
