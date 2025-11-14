@@ -3,3 +3,4 @@
 /.vscode
 CMakeCache.txt
 /CMakeFiles
+_test.sh
