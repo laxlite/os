@@ -2,6 +2,7 @@
 git add *
 set /p message=Текст коммита: 
 git commit -m "%message%"
+cd lab_1
 if exist build (
     rmdir /s /q build
 )
