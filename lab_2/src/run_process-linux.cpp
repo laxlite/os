@@ -6,7 +6,7 @@
 #include<stdlib.h>
 #include<errno.h>
 
-#include"run_process.hpp"
+#include"run_process-linux.hpp"
 
 using std::cout, std::cerr, std::endl, std::string;
 
