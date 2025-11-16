@@ -1,6 +1,7 @@
 */build*
 */bin
 /.vscode
+**/lib
 CMakeCache.txt
-/CMakeFiles
+*/CMakeFiles
 _test.sh
