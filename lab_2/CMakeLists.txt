@@ -3,18 +3,19 @@ project(hello_library LANGUAGES CXX)
 
 set(CMAKE_C_STANDARD 11)
 
-# определяем переменные в зависимости от платформы
-if(WIN32)
-    set(PLATFORM windows)
-elseif(LINUX)
-    set(PLATFORM linux)
-endif()
-
 add_library(
     process_runner
     SHARED
-    ${CMAKE_SOURCE_DIR}/src/run_process.cpp
 )
+# определяем переменные в зависимости от платформы
+if(WIN32)
+    set(PLATFORM windows)
+    target_sources(process_runner PRIVATE ${CMAKE_SOURCE_DIR}/src/run_process-windows.cpp)
+elseif(LINUX)
+    set(PLATFORM linux)
+    target_sources(process_runner PRIVATE ${CMAKE_SOURCE_DIR}/src/run_process-linux.cpp)
+endif()
+
 add_executable(
     app
     ${CMAKE_SOURCE_DIR}/src/main.cpp
