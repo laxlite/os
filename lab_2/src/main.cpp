@@ -11,7 +11,7 @@ char** get_options_array(char options[]){
     char** options_array = new char*[11]; // количество слов в команде
     int options_it = 0;
     int symbol_it = 0; // позиция текущего символа в options
-    char buffer[20]; // длина одного слова
+    char buffer[200]; // длина одного слова
     int buffer_it = 0;
     while (true)
     {
@@ -36,8 +36,8 @@ char** get_options_array(char options[]){
 }
 
 int main(int argc, char* argv[]){
-    char path_to_file[100];
-    char options[100];
+    char* path_to_file = new char[1000];
+    char* options = new char[1000];
     int time = 0;
     printf("Enter the sleep time: ");
     scanf("%d", &time);
@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
     scanf("%s", path_to_file);
     printf("Enter the program options (one line separated by space):");
     getchar();                              // Считывает с буфера \n. он остался, т.к. scanf считывает до пробельного символа НЕ включительно
-    fgets(options, sizeof(options), stdin); // считает строку до /n включительно или до sizeof(options) символов. 
+    fgets(options, sizeof(options) * 1000, stdin); // считает строку до /n включительно или до sizeof(options) символов. 
                                             // scanf читает до пробельного символа
                                             // если символы вместились - добавляет в конец 
     options[strcspn(options, "\r\n")] = '\0';   // убираем последний символ, если он попал в строку
