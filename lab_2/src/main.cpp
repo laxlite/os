@@ -1,7 +1,11 @@
 #include<stdio.h>
 #include<string.h>
 
-#include"run_process.hpp"
+#if defined(_WIN32)
+    #include"run_process-windows.hpp"
+#elif defined(__linux__)
+    #include"run_process-linux.hpp"
+#endif
 
 char** get_options_array(char options[]){
     char** options_array = new char*[11]; // количество слов в команде
@@ -45,7 +49,14 @@ int main(int argc, char* argv[]){
                                             // scanf читает до пробельного символа
                                             // если символы вместились - добавляет в конец 
     options[strcspn(options, "\r\n")] = '\0';   // убираем последний символ, если он попал в строку
-    char** options_array = get_options_array(options);
+
+    #ifdef _WIN32
+        // logic for changing options_array - if its win, then options_array is char*. Otherwise - use get_options_array
+        // macros must be define in cmakelists.txt
+        LPSTR options_array = options;
+    #elif defined(__linux__)
+        char** options_array = get_options_array(options);
+    #endif
 
     int status = run_process(time, path_to_file, options_array);
 
